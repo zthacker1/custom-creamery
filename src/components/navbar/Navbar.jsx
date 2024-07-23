@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./Navbar.css";
 
 export const Navbar = ({ currentUser }) => {
   const navigate = useNavigate();
@@ -7,10 +6,10 @@ export const Navbar = ({ currentUser }) => {
   return (
     <ul className="navbar">
       <li className="navbar-item">
-        <Link to="/profile">Profile</Link>
+        <Link to="/users">All Users</Link>
       </li>
       <li className="navbar-item">
-        <Link to="/workout">My Workouts</Link>
+        <Link to="/customIceCreamList">All Custom Creations</Link>
       </li>
     </ul>
   );
