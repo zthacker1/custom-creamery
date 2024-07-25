@@ -1,0 +1,21 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffcccb; /* Strawberry background */
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-container h1 {
+  font-size: 3em;
+  color: #4e342e; /* Chocolate color */
+}
+
+.welcome-container span {
+  background-color: #fff; /* Vanilla accents */
+  padding: 10px 20px;
+  border-radius: 5px;
+}
