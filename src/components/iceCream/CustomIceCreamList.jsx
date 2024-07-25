@@ -4,11 +4,14 @@ import {
   getAllCustomIceCream,
   getAllCustomIceCreamToppings,
 } from "../../services/iceCreamService";
+import "./CustomIceCreamList.css";
 
 export const CustomIceCreamList = () => {
   const [allCustomIceCream, setAllCustomIceCream] = useState([]);
   const [allBaseFlavors, setAllBaseFlavors] = useState([]);
-  const [allToppings, setAllToppings] = useState([]);
+  const [allCustomIceCreamToppings, setAllCustomIceCreamToppings] = useState(
+    []
+  );
 
   useEffect(() => {
     getAllCustomIceCream().then((customIceCreamArray) => {
@@ -24,7 +27,7 @@ export const CustomIceCreamList = () => {
 
   useEffect(() => {
     getAllCustomIceCreamToppings().then((allToppings) => {
-      setAllToppings(allToppings);
+      setAllCustomIceCreamToppings(allToppings);
     });
   }, []);
 
