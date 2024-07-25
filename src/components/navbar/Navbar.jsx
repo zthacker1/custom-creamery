@@ -12,6 +12,25 @@ export const Navbar = () => {
       <li className="navbar-item">
         <Link to="/customIceCreamList">All Custom Ice Cream</Link>
       </li>
+      <li className="navbar-item">
+        <Link to="/myCustomIceCream">My Custom Ice Cream</Link>
+      </li>
+      {localStorage.getItem("cc_user") ? (
+        <li className="navbar-item navbar-logout">
+          <Link
+            className="navbar-link"
+            to=""
+            onClick={() => {
+              localStorage.removeItem("cc_user");
+              navigate("/", { replace: true });
+            }}
+          >
+            Logout
+          </Link>
+        </li>
+      ) : (
+        ""
+      )}
     </ul>
   );
 };
