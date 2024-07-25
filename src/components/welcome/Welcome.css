@@ -1,21 +1,60 @@
+/* General styles for the page */
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa; /* light background */
+  color: #4a4a4a; /* dark text */
+}
+
+/* Container for the welcome message */
 .welcome-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
-  background-color: #ffcccb; /* Strawberry background */
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    to bottom,
+    #fce2e2,
+    #fff8e1,
+    #d4b89b
+  ); /* Neapolitan ice cream colors */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Styles for the welcome message */
 .welcome-container h1 {
-  font-size: 3em;
-  color: #4e342e; /* Chocolate color */
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #4a4a4a;
 }
 
-.welcome-container span {
-  background-color: #fff; /* Vanilla accents */
+.welcome-container h1 span {
+  display: block;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #d9534f; /* strawberry pink */
+  margin-bottom: 20px;
+}
+
+/* Styles for the counter */
+.welcome-container .counter {
+  font-size: 2rem;
+  color: #4a4a4a; /* dark text */
+  border: 2px solid #4a4a4a; /* dark border */
   padding: 10px 20px;
   border-radius: 5px;
+  background-color: #fff8e1; /* vanilla cream */
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Styles for footer or any additional elements */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #7f8c8d; /* grey text */
 }
