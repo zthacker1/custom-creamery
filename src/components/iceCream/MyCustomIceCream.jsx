@@ -7,7 +7,7 @@ import {
 } from "../../services/iceCreamService";
 import "./CustomIceCreamList.css";
 
-export const CustomIceCreamList = ({ currentUser }) => {
+export const MyCustomIceCream = ({ currentUser }) => {
   const [allCustomIceCream, setAllCustomIceCream] = useState([]);
   const [allBaseFlavors, setAllBaseFlavors] = useState([]);
   const [allCustomIceCreamToppings, setAllCustomIceCreamToppings] = useState(
@@ -76,28 +76,34 @@ export const CustomIceCreamList = ({ currentUser }) => {
       <div className="customIceCream-container">
         <h2>All Custom Ice Cream</h2>
         <article className="customIceCreams">
-          {allCustomIceCream.map((customIceCream) => {
-            const baseFlavor = currentBaseFlavor(customIceCream);
-            const toppings = currentToppings(customIceCream);
-            return (
-              <section className="customIceCream" key={customIceCream.id}>
-                <header>{customIceCream.name}</header>
-                <ul>Size: {size(customIceCream.sizeId)}</ul>
-                <ul>Base Flavor: {baseFlavor ? baseFlavor.name : "Unknown"}</ul>
-                <ul>
-                  Toppings:
-                  {toppings.length > 0
-                    ? toppings.map((topping, index) => (
-                        <li key={index}>{topping}</li>
-                      ))
-                    : "None"}
-                </ul>
-                <footer>
-                  <div className="edit-btn">Edit</div>
-                </footer>
-              </section>
-            );
-          })}
+          {allCustomIceCream
+            .filter(
+              (customIceCream) => customIceCream.userId === currentUser.id
+            )
+            .map((customIceCream) => {
+              const baseFlavor = currentBaseFlavor(customIceCream);
+              const toppings = currentToppings(customIceCream);
+              return (
+                <section className="customIceCream" key={customIceCream.id}>
+                  <header>{customIceCream.name}</header>
+                  <ul>Size: {size(customIceCream.sizeId)}</ul>
+                  <ul>
+                    Base Flavor: {baseFlavor ? baseFlavor.name : "Unknown"}
+                  </ul>
+                  <ul>
+                    Toppings:
+                    {toppings.length > 0
+                      ? toppings.map((topping, index) => (
+                          <li key={index}>{topping}</li>
+                        ))
+                      : "None"}
+                  </ul>
+                  <footer>
+                    <div className="edit-btn">Edit</div>
+                  </footer>
+                </section>
+              );
+            })}
         </article>
       </div>
     </>

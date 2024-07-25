@@ -1,25 +1,22 @@
 import { Outlet, Route, Routes } from "react-router-dom";
-import { CustomIceCreamList } from "./components/iceCream/CustomIceCreamList";
-import { Users } from "./components/user/Users";
-import { Navbar } from "./components/navbar/Navbar";
-import { Welcome } from "./components/welcome/Welcome";
+import { Login } from "./components/auth/Login";
+import { Register } from "./components/auth/Register";
+import { ApplicationViews } from "./views/ApplicationViews";
+import { Authorized } from "./views/Authorized";
 
 export const App = () => {
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route
-        path="/"
+        path="*"
         element={
-          <>
-            <Navbar />
-            <Outlet />
-          </>
+          <Authorized>
+            <ApplicationViews />
+          </Authorized>
         }
-      >
-        <Route index element={<Welcome />} />
-        <Route path="customIceCreamList" element={<CustomIceCreamList />} />
-        <Route path="users" element={<Users />} />
-      </Route>
+      />
     </Routes>
   );
 };
