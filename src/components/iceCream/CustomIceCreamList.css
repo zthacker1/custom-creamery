@@ -40,6 +40,33 @@
   margin: 5px 0;
 }
 
+.customIceCream li {
+  list-style-type: none;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.order-btn,
+.edit-btn {
+  background-color: #fff; /* Vanilla background */
+  color: #4e342e; /* Chocolate color */
+  padding: 5px 10px;
+  border: 1px solid #4e342e;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.order-btn:hover,
+.edit-btn:hover {
+  background-color: #4e342e; /* Chocolate color */
+  color: #fff; /* Vanilla accents */
+}
+
 @media (max-width: 768px) {
   .customIceCream {
     flex: 1 1 calc(50% - 20px);

@@ -72,6 +72,11 @@ export const MyCustomIceCream = ({ currentUser }) => {
       });
   };
 
+  const handleOrder = (customIceCream) => {
+    alert(`You have ordered ${customIceCream.name}!`);
+    // Add any additional logic for ordering here
+  };
+
   const navigate = useNavigate();
   return (
     <>
@@ -101,6 +106,12 @@ export const MyCustomIceCream = ({ currentUser }) => {
                       : "None"}
                   </ul>
                   <footer>
+                    <button
+                      className="order-btn"
+                      onClick={() => handleOrder(customIceCream)}
+                    >
+                      Order
+                    </button>
                     <button
                       className="edit-btn"
                       onClick={() => navigate(`${customIceCream.id}`)}

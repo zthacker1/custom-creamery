@@ -11,6 +11,7 @@ import {
   updateCustomIceCreamToppings,
 } from "../../services/iceCreamService";
 import { useParams, useNavigate } from "react-router-dom";
+import "./Forms.css";
 
 export const EditCustomIceCream = () => {
   const [allCustomIceCream, setAllCustomIceCream] = useState([]);
