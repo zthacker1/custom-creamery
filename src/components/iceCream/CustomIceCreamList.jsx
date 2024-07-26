@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   getAllBaseFlavors,
   getAllCustomIceCream,
-  getAllCustomIceCreamToppings,
+  getCustomIceCreamToppings,
   getAllToppings,
 } from "../../services/iceCreamService";
 import "./CustomIceCreamList.css";
@@ -35,7 +35,7 @@ export const CustomIceCreamList = ({ currentUser }) => {
   }, []);
 
   useEffect(() => {
-    getAllCustomIceCreamToppings().then((allToppings) => {
+    getCustomIceCreamToppings().then((allToppings) => {
       setAllCustomIceCreamToppings(allToppings);
     });
   }, []);
@@ -96,12 +96,12 @@ export const CustomIceCreamList = ({ currentUser }) => {
                     : "None"}
                 </ul>
                 <footer>
-                  <button
+                  <div
                     className="edit-btn"
                     onClick={() => navigate(`${customIceCream.id}`)}
                   >
                     Edit
-                  </button>
+                  </div>
                 </footer>
               </section>
             );

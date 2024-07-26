@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import {
   getAllBaseFlavors,
   getAllCustomIceCream,
-  getAllCustomIceCreamToppings,
+  getCustomIceCreamToppings,
   getAllToppings,
 } from "../../services/iceCreamService";
 import "./CustomIceCreamList.css";
+import { useNavigate } from "react-router-dom";
 
 export const MyCustomIceCream = ({ currentUser }) => {
   const [allCustomIceCream, setAllCustomIceCream] = useState([]);
@@ -34,13 +35,13 @@ export const MyCustomIceCream = ({ currentUser }) => {
   }, []);
 
   useEffect(() => {
-    getAllCustomIceCreamToppings().then((allToppings) => {
+    getCustomIceCreamToppings().then((allToppings) => {
       setAllCustomIceCreamToppings(allToppings);
     });
   }, []);
 
   const size = (id) => {
-    switch (id) {
+    switch (parseInt(id)) {
       case 1:
         return "pint";
       case 2:
@@ -71,6 +72,7 @@ export const MyCustomIceCream = ({ currentUser }) => {
       });
   };
 
+  const navigate = useNavigate();
   return (
     <>
       <div className="customIceCream-container">
@@ -99,7 +101,12 @@ export const MyCustomIceCream = ({ currentUser }) => {
                       : "None"}
                   </ul>
                   <footer>
-                    <div className="edit-btn">Edit</div>
+                    <button
+                      className="edit-btn"
+                      onClick={() => navigate(`${customIceCream.id}`)}
+                    >
+                      Edit
+                    </button>
                   </footer>
                 </section>
               );
