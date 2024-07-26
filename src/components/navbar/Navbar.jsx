@@ -18,6 +18,9 @@ export const Navbar = () => {
       <li className="navbar-item">
         <Link to="/myCustomIceCream">My Custom Ice Cream</Link>
       </li>
+      <li className="navbar-item">
+        <Link to="/createCustomIceCream">Create New Ice Cream</Link>
+      </li>
       {localStorage.getItem("cc_user") ? (
         <li className="navbar-item navbar-logout">
           <Link

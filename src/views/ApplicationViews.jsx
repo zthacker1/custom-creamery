@@ -5,6 +5,7 @@ import { Navbar } from "../components/navbar/Navbar";
 import { Welcome } from "../components/welcome/Welcome";
 import { useEffect, useState } from "react";
 import { MyCustomIceCream } from "../components/iceCream/MyCustomIceCream";
+import { EditCustomIceCream } from "../components/forms/EditCustomIceCream";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -25,6 +26,10 @@ export const ApplicationViews = () => {
           <Route
             path="customIceCreamList"
             element={<CustomIceCreamList currentUser={currentUser} />}
+          />
+          <Route
+            path="customIceCreamList/:customIceCreamListId"
+            element={<EditCustomIceCream currentUser={currentUser} />}
           />
           <Route
             path="myCustomIceCream"
