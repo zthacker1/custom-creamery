@@ -7,6 +7,7 @@ import {
   addCustomIceCreamToppings,
 } from "../../services/iceCreamService";
 import { useNavigate } from "react-router-dom";
+import "./Forms.css";
 
 export const CreateCustomIceCream = ({ currentUser }) => {
   const [allBaseFlavors, setAllBaseFlavors] = useState([]);
@@ -68,7 +69,7 @@ export const CreateCustomIceCream = ({ currentUser }) => {
         return addCustomIceCreamToppings(newToppings);
       })
       .then(() => {
-        navigate("/customIceCreamList");
+        navigate("/myCustomIceCream");
       })
       .catch((error) => {
         console.error("Failed to create custom ice cream:", error);
